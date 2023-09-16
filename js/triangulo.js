@@ -1,3 +1,36 @@
+function setMensagem(frase) {
+    const aqui = document.querySelector('#mostra');
+    aqui.innerHTML = '';
+
+    aqui.classList.add('oi');
+    aqui.innerHTML = frase;
+}
+
+function ValidarTriangulo(x, y, z){    
+
+    if(x <= y + z && y <= x + z && z <= x + y){
+
+        const img = document.querySelector('#imagem');
+        if(x == y && y == z && z == x){
+            setMensagem("Equilátero");
+            img.setAttribute('src', 'image/equilatero.png');
+        }
+        else if(x != y && y != z && x != z){
+            setMensagem("Escaleno");
+            img.setAttribute('src', 'image/escaleno.png');
+        }
+        else{
+           setMensagem("Isósceles");
+           img.setAttribute('src', 'image/isosceles.png');            
+        }
+    }
+    else{
+        setMensagem("Inválido");
+       
+    }
+}
+
+
 const valores = document.querySelector('#triangulo');
 
 valores.addEventListener('submit', function(e){
@@ -10,31 +43,3 @@ valores.addEventListener('submit', function(e){
     
 });
 
-function ValidarTriangulo(a, b, c){    
-
-    const img = document.querySelector('#imagem');
-    if(a <= b + c && b <= a + c && c <= a + b){
-        if(a == b && b == c && c == a){
-            setMensagem("Equilátero");
-            img.setAttribute('src', 'image/bozo.jpg');
-        }
-        else if(a != b && b != c && c != a){
-            setMensagem("Isósceles")
-        }
-        else{
-           setMensagem("Escaleno");            
-        }
-    }
-    else{
-        setMensagem("Inválido");
-       
-    }
-}
-
-function setMensagem(frase) {
-    const aqui = document.querySelector('#mostra');
-    aqui.innerHTML = '';
-
-    aqui.classList.add('oi');
-    aqui.innerHTML = frase;
-}
